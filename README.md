@@ -1,2 +1,2 @@
 # Pill Dispenser
-This repo is intended for Ardunio used in EK 210 class only.
+This repo is intended for Arduino used in EK210 class only.
