@@ -1,1 +1,1 @@
-Initial Readme for First Commit
+Initial Readme for first commit
