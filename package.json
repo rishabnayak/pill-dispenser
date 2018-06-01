@@ -1,0 +1,25 @@
+{
+  "name": "pill-dispenser",
+  "version": "1.0.0",
+  "description": "EK210 Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "deploy": "gcloud app deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishab2113/pill-dispenser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishab2113/pill-dispenser/issues"
+  },
+  "homepage": "https://github.com/rishab2113/pill-dispenser#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "http": "0.0.0",
+    "socket.io": "^2.1.1"
+  }
+}
