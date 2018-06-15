@@ -7,6 +7,9 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', (req, res) => {
   res.render('homepage.html');
 });
+app.get('/patients',(req,res) =>{
+  res.render('patients.html');
+});
 io.on('connection',function(socket){
   console.log('user connected');
     socket.on('disconnect',() => {
