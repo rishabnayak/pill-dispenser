@@ -1,5 +1,6 @@
 const socket = io();
-var checkbox = document.getElementByID("motor");
+var checkbox = document.getElementById("motor");
     checkbox.addEventListener("change",function(){
-       socket.emit("motor",Number(this.checked));
+       socket.emit('motor',Number(this.checked));
     });
+
