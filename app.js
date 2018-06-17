@@ -11,9 +11,12 @@ app.get('/patients',(req,res) =>{
   res.render('patients.html');
 });
 io.on('connection',function(socket){
-  console.log('user connected');
-    socket.on('disconnect',() => {
-      console.log('user disconnected');
+    var motorvalue = 0;
+    socket.on('motor', function(data){
+       lightvalue = data;
+       if (lightvalue) {
+           console.log(lightvalue)
+       }
     });
 });
 http.listen(8080, () => {
