@@ -22,11 +22,13 @@ io.on('connection',function(socket){
            bus.writeByteSync(addr, 0, 0x20);
            bus.writeByteSync(addr, 0xfe, 0x1e);
            bus.writeWordSync(addr, 0x06, 0);
-           bus.writeWordSync(addr, 0x08, 1250);
+           bus.writeWordSync(addr,0x0A,0);
            sleep.sleep(1);
            bus.writeWordSync(addr, 0x08, 836);
+           bus.writeWordSync(addr, 0x0C, 836);
            sleep.sleep(1);
            bus.writeWordSync(addr, 0x08, 1664);
+           bus.writeWordSync(addr, 0x0C, 1664);
        }
     });
 });
