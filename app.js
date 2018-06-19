@@ -11,9 +11,6 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', (req, res) => {
   res.render('homepage.html');
 });
-app.get('/patients',(req,res) =>{
-  res.render('patients.html');
-});
 io.on('connection',function(socket){
     var motorvalue = 0;
     socket.on('motor', function(data){
