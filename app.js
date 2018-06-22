@@ -36,32 +36,15 @@ io.on('connection',function(socket){
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     console.log("ButtonPress Received");
-    var data = global.data;
-    var date = new Date();
-    var day = date.getDay();
-    var hour = date.getHours();
-    var minutes = date.getMinutes();
-    var time = hour+":"+minutes;
-    for (var i in data){
-      if (i == day){
-        for (var j in data[i]){
-          if (j == time){
-            var count1 = data[i][j][0];
-            var count2 = data[i][j][1];
-            var count3 = data[i][j][2];
-            for (var k = 0; k < count1; k++) {
+            for (var k = 0; k < global.count1; k++) {
               runservo1();
             }
-            for (var l = 0; l < count2; l++) {
+            for (var l = 0; l < global.count2; l++) {
               runservo2();
             }
-            for (var m = 0; m < count2; m++) {
+            for (var m = 0; m < global.count3; m++) {
               runservo3();
             }
-          }
-        }
-      }
-    }
   });
 });
 http.listen(8080, () => {
@@ -83,6 +66,9 @@ function handledata() {
         console.log(`checking j=${j}, time=${time}`)
         if (j == time){
           io.emit('alert',"Time to take your Pills!");
+          global.count1 = data[i][j][0];
+          global.count2 = data[i][j][1];
+          global.count3 = data[i][j][2];
           global.timer = setTimeout(function(){
             io.emit('alert',"Second Alert!");
             // additional actions here
