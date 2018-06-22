@@ -33,7 +33,7 @@ io.on('connection',function(socket){
       global.data = data;
         handledata();
   });
-  socket.on('buttonpress',function()){
+  socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     var data = global.data;
     for (var i in data){
@@ -56,10 +56,7 @@ io.on('connection',function(socket){
         }
       }
     }
-
-
-
-
+  });
 });
 http.listen(8080, () => {
 console.log("View at localhost:8080");
