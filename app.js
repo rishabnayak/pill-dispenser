@@ -36,6 +36,11 @@ io.on('connection',function(socket){
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     var data = global.data;
+    var date = new Date();
+    var day = date.getDay();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var time = hour+":"+minutes;
     for (var i in data){
       if (i == day){
         for (var j in data[i]){
