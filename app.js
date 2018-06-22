@@ -30,11 +30,12 @@ function runservo3() {
 }
 io.on('connection',function(socket){
     socket.on('setup',function(data){
-    var date = new Date();
-    var day = date.getDay();
-    var hour = date.getHours();
-    var minutes = date.getMinutes();
-    var time = hour+":"+min;
+      global.data = data;
+        handledata();
+  });
+  socket.on('buttonpress',function()){
+    clearTimeout(global.timer)
+    var data = global.data;
     for (var i in data){
       if (i == day){
         for (var j in data[i]){
@@ -55,9 +56,36 @@ io.on('connection',function(socket){
         }
       }
     }
-  });
-  setTimeout(_ => io.emit('alert',"HEY"), 10000);
+
+
+
+
 });
 http.listen(8080, () => {
 console.log("View at localhost:8080");
 });
+
+function handledata() {
+  if(!global.data) return;
+  var data = global.data;
+  var date = new Date();
+  var day = date.getDay();
+  var hour = date.getHours();
+  var minutes = date.getMinutes();
+  var time = hour+":"+min;
+  for (var i in data){
+    if (i == day){
+      for (var j in data[i]){
+        if (j == time){
+          io.emit('alert',"Time to take your Pills!");
+          global.timer = setTimeout(function(){
+            io.emit('alert',"Second Alert!");
+            // additional actions here
+          }, 600000);
+        }
+      }
+    }
+  }
+};
+
+setInterval(handledata, 60000);
