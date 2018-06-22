@@ -29,8 +29,10 @@ function runservo3() {
   bus.writeWordSync(addr, 0x10, 836);
 }
 io.on('connection',function(socket){
+    socket.on('test'),function(data){
+      console.log(data);
+    }
     socket.on('setup',function(data){
-
     data = JSON.parse(data)
     var date = new Date();
     var day = date.getDay();
