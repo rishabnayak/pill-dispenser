@@ -35,6 +35,7 @@ io.on('connection',function(socket){
   });
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
+    console.log("ButtonPress Received");
     var data = global.data;
     var date = new Date();
     var day = date.getDay();
