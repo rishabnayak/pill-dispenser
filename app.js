@@ -69,7 +69,7 @@ function handledata() {
   var day = date.getDay();
   var hour = date.getHours();
   var minutes = date.getMinutes();
-  var time = hour+":"+min;
+  var time = hour+":"+minutes;
   for (var i in data){
     if (i == day){
       for (var j in data[i]){
