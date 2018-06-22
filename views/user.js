@@ -1,6 +1,4 @@
 const socket = io();
-var checkbox = document.getElementById("motor");
-    checkbox.addEventListener("change",function(){
-       socket.emit('motor',Number(this.checked));
-    });
-
+$('#form').submit(function(){
+    socket.emit('setup', $('#text').val());
+  });
