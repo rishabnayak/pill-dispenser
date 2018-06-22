@@ -62,6 +62,7 @@ io.on('connection',function(socket){
       }
     }
   });
+  setTimeout(_ => io.emit('alert',"HEY"), 10000);
 });
 http.listen(8080, () => {
 console.log("View at localhost:8080");
