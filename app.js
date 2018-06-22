@@ -2,11 +2,10 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-//const i2cbus = require('i2c-bus');
-//const sleep = require('sleep');
-//const bus = i2cbus.openSync(1);
+const i2cbus = require('i2c-bus');
+const sleep = require('sleep');
+const bus = i2cbus.openSync(1);
 const addr = 0x40;
-const weekdays = ["Sunday","Monday","Tuesday","Thursday","Friday","Saturday"];]
 bus.writeByteSync(addr, 0, 0x20);
 bus.writeByteSync(addr, 0xfe, 0x1e);
 app.use(express.static(__dirname + '/views'));
@@ -31,6 +30,8 @@ function runservo3() {
 }
 io.on('connection',function(socket){
     socket.on('setup',function(data){
+
+    data = JSON.parse(data)
     var date = new Date();
     var day = date.getDay();
     var hour = date.getHours();
@@ -38,7 +39,7 @@ io.on('connection',function(socket){
     var time = hour+":"+min;
     var days = data.days.length;
     for (var i = 0; i < days; i++){
-      if (data.days(i) == weekdays[day]){
+      if (data.days(i) == day){
         var runtimes = data.days(i).times.length;
         for (var j = 0; j < runtimes; j++){
           if (data.days(i).times(j) == time){
