@@ -12,7 +12,6 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
-  console.log('runservo1 has run');
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
   bus.writeWordSync(addr, 0x06, 0);
