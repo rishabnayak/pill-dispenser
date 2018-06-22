@@ -29,25 +29,19 @@ function runservo3() {
   bus.writeWordSync(addr, 0x10, 836);
 }
 io.on('connection',function(socket){
-    socket.on('test',function(data){
-      console.log(data);
-    });
     socket.on('setup',function(data){
-    data = JSON.parse(data)
     var date = new Date();
     var day = date.getDay();
     var hour = date.getHours();
     var minutes = date.getMinutes();
     var time = hour+":"+min;
-    var days = data.days.length;
-    for (var i = 0; i < days; i++){
-      if (data.days(i) == day){
-        var runtimes = data.days(i).times.length;
-        for (var j = 0; j < runtimes; j++){
-          if (data.days(i).times(j) == time){
-            var count1 = data.days(i).times(j).pill(0);
-            var count2 = data.days(i).times(j).pill(1);
-            var count3 = data.days(i).times(j).pill(2);
+    for (var i in data){
+      if (i == day){
+        for (var j in data[i]){
+          if (j == time){
+            var count1 = data[i][j][0];
+            var count2 = data[i][j][1];
+            var count3 = data[i][j][2];
             for (var k = 0; k < count1; k++) {
               runservo1();
             }
