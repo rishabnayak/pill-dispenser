@@ -6,24 +6,28 @@ const i2cbus = require('i2c-bus');
 const sleep = require('sleep');
 const bus = i2cbus.openSync(1);
 const addr = 0x40;
-bus.writeByteSync(addr, 0, 0x20);
-bus.writeByteSync(addr, 0xfe, 0x1e);
 app.use(express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
+  bus.writeByteSync(addr, 0, 0x20);
+  bus.writeByteSync(addr, 0xfe, 0x1e);
   bus.writeWordSync(addr, 0x06, 0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x08, 836);
 }
 function runservo2() {
+  bus.writeByteSync(addr, 0, 0x20);
+  bus.writeByteSync(addr, 0xfe, 0x1e);
   bus.writeWordSync(addr,0x0A,0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x0C, 836);
 }
 function runservo3() {
+  bus.writeByteSync(addr, 0, 0x20);
+  bus.writeByteSync(addr, 0xfe, 0x1e);
   bus.writeWordSync(addr,0x0E,0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x10, 836);
