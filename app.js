@@ -76,8 +76,10 @@ function handledata() {
   var minutes = date.getMinutes();
   var time = hour+":"+minutes;
   for (var i in data){
+    console.log(`checking i=${i}, day=${day}`)
     if (i == day){
       for (var j in data[i]){
+        console.log(`checking j=${j}, time=${time}`)
         if (j == time){
           io.emit('alert',"Time to take your Pills!");
           global.timer = setTimeout(function(){
