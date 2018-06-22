@@ -5,5 +5,8 @@ const addr = 0x40;
 bus.writeByteSync(addr, 0, 0x20);
 bus.writeByteSync(addr, 0xfe, 0x1e);
 bus.writeWordSync(addr, 0x06, 0);
+bus.writeWordSync(addr, 0x06, 1250);
 sleep.sleep(1);
 bus.writeWordSync(addr, 0x08, 836);
+sleep.sleep(1);
+bus.writeWordSync(addr, 0x08, 1664);
