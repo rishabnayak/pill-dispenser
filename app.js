@@ -6,12 +6,16 @@ const i2cbus = require('i2c-bus');
 const sleep = require('sleep');
 const bus = i2cbus.openSync(1);
 const addr = 0x40;
+const exec = require('child_process')
 app.use(express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
+
+  exec("python x.py");
+  return;
   console.log("motor 1 runs");
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
