@@ -22,7 +22,7 @@ bus.write_word_data(addr, 0x08, 1250)  # chl 0 end time = 1.5ms
 ##  from now on we only need perform the second write, as the first register we
 ##  wrote to can remain at zero.
 
-time.sleep(1)   # pause at neutral for two seconds
-bus.write_word_data(addr, 0x08, 836)  # chl 0 end time = 1.0ms
-time.sleep(1)
-bus.write_word_data(addr, 0x08, 1664)  # chl 0 end time = 2.0ms
+##time.sleep(1)   # pause at neutral for two seconds
+##bus.write_word_data(addr, 0x08, 836)  # chl 0 end time = 1.0ms
+##time.sleep(1)
+##bus.write_word_data(addr, 0x08, 1664)  # chl 0 end time = 2.0ms
