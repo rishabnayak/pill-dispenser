@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
-  console.log("im here");
+  console.log("motor 1 runs");
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
   sleep.sleep(1);
@@ -44,16 +44,15 @@ io.on('connection',function(socket){
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     console.log("ButtonPress Received");
-    runservo1();
-            for (var k = 0; k < global.count1; k++) {
-              setTimeout(_ => (console.log("this runs"), runservo1()), 3000*k);
-            }
-            for (var l = 0; l < global.count2; l++) {
-              runservo2();
-            }
-            for (var m = 0; m < global.count3; m++) {
-              runservo3();
-            }
+    for (var k = 0; k < global.count1; k++) {
+      setTimeout(_ => (console.log("timeout executed"), runservo1()), 3000*k);
+    }
+    for (var l = 0; l < global.count2; l++) {
+      runservo2();
+    }
+    for (var m = 0; m < global.count3; m++) {
+      runservo3();
+    }
   });
 });
 http.listen(8080, () => {
