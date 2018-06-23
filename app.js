@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 function runservo1() {
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
   bus.writeWordSync(addr, 0x06, 0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x08, 1250);
@@ -22,7 +21,6 @@ function runservo1() {
 function runservo2() {
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
   bus.writeWordSync(addr,0x0A,0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x0C, 1250);
@@ -30,7 +28,6 @@ function runservo2() {
 function runservo3() {
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
   bus.writeWordSync(addr,0x0E,0);
   sleep.sleep(1);
   bus.writeWordSync(addr, 0x10, 1250);
@@ -44,7 +41,7 @@ io.on('connection',function(socket){
     clearTimeout(global.timer)
     console.log("ButtonPress Received");
             for (var k = 0; k < global.count1; k++) {
-              runservo1();
+              setTimeout(runservo1, 3000*k);
             }
             for (var l = 0; l < global.count2; l++) {
               runservo2();
