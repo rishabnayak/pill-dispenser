@@ -21,5 +21,7 @@ bus.write_word_data(addr, 0x0A, 0)     # chl 0 start time = 0us
 ## Just for fun, we'll swing the servo to one side and then the other. Note that
 ##  from now on we only need perform the second write, as the first register we
 ##  wrote to can remain at zero.
-
-bus.write_word_data(addr, 0x0C, 1664)  # chl 0 end time = 2.0ms
+time.sleep(1)   # pause at neutral for one seconds
+bus.write_word_data(addr, 0x0C, 422)  # chl 0 end time = 1.0ms
+time.sleep(1)
+bus.write_word_data(addr, 0x0C, 2078)  # chl 0 end time = 2.0ms
