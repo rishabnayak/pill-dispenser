@@ -10,8 +10,6 @@ bus.write_byte_data(addr, 0, 0x20)     # enable the chip
 bus.write_byte_data(addr, 0xfe, 0x1e)  # configure the chip for multi-byte write
 
 bus.write_word_data(addr, 0x06, 0)     # chl 0 start time = 0us
-bus.write_word_data(addr, 0x08, 1250)  # chl 0 end time = 1.5ms
-
 ## The 1.5ms end time is equal to 1.2us per count. This represents the neutral
 ##  position of the servo, midway between both extremes. Each degree of
 ##  deviation from neutral requires that number (1250) to be changed by 4.6.
@@ -22,5 +20,4 @@ bus.write_word_data(addr, 0x08, 1250)  # chl 0 end time = 1.5ms
 ##  from now on we only need perform the second write, as the first register we
 ##  wrote to can remain at zero.
 
-##time.sleep(1)
-##bus.write_word_data(addr, 0x08, 1664)  # chl 0 end time = 2.0ms
+bus.write_word_data(addr, 0x08, 1664)  # chl 0 end time = 2.0ms

@@ -21,5 +21,4 @@ bus.write_word_data(addr, 0x0E, 0)     # chl 0 start time = 0us  # chl 0 end tim
 ##  from now on we only need perform the second write, as the first register we
 ##  wrote to can remain at zero.
 
-time.sleep(1)
 bus.write_word_data(addr, 0x10, 1664)  # chl 0 end time = 2.0ms
