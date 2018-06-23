@@ -48,7 +48,7 @@ io.on('connection',function(socket){
     clearTimeout(global.timer)
     for (var k = 0; k < global.count1; k++) {
       console.log("timeout set for " + 3000*k);
-      setTimeout(_ => (console.log("timeout executed"), runservo1()), 3000*k);
+      setTimeout(_ => runservo1(), 3000*k);
     }
     for (var l = 0; l < global.count2; l++) {
       runservo2();
