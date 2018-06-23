@@ -23,6 +23,6 @@ bus.write_byte_data(addr, 0xfe, 0x1e)  # configure the chip for multi-byte write
 ##  wrote to can remain at zero.
 
 time.sleep(1)   # pause at neutral for two second
-bus.write_word_data(addr, 0x08, 560)  # chl 0 end time = 1.0ms
+bus.write_word_data(addr, 0x08, 698)  # chl 0 end time = 1.0ms
 time.sleep(1)
-bus.write_word_data(addr, 0x08, 1940)  # chl 0 end time = 2.0ms
+bus.write_word_data(addr, 0x08, 1802)  # chl 0 end time = 2.0ms
