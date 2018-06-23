@@ -46,8 +46,8 @@ io.on('connection',function(socket){
   });
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
-    console.log("ButtonPress Received");
     for (var k = 0; k < global.count1; k++) {
+      console.log("timeout set for " + 3000*k);
       setTimeout(_ => (console.log("timeout executed"), runservo1()), 3000*k);
     }
     for (var l = 0; l < global.count2; l++) {
