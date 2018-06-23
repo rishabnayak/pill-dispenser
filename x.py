@@ -24,3 +24,5 @@ bus.write_word_data(addr, 0x06, 0)     # chl 0 start time = 0us
 
 time.sleep(1)   # pause at neutral for one seconds
 bus.write_word_data(addr, 0x08, 1250)  # chl 0 end time = 1.0ms
+time.sleep(1)
+bus.write_word_data(addr, 0x08, 0)
