@@ -62,7 +62,7 @@ function handledata() {
   var day = date.getDay();
   var hour = date.getHours();
   var minutes = date.getMinutes();
-  var time = hour+":"+minutes;
+  var time = (hour<=9?"0"+hour:hour)+":"+(minutes<=9?"0"+minutes:minutes);
   for (var i in data){
     console.log(`checking i=${i}, day=${day}`)
     if (i == day){
