@@ -13,8 +13,7 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
-
-  exec("python x.py");
+  exec.exec("python x.py");
   return;
   console.log("motor 1 runs");
   bus.writeByteSync(addr, 0, 0x20);
