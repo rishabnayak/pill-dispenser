@@ -3,7 +3,6 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const i2cbus = require('i2c-bus');
-const sleep = require('sleep');
 const bus = i2cbus.openSync(1);
 const addr = 0x40;
 const exec = require('child_process')
@@ -15,29 +14,14 @@ app.get('/', (req, res) => {
 function runservo1() {
   exec.exec("python x.py");
   return;
-  console.log("motor 1 runs");
-  bus.writeByteSync(addr, 0, 0x20);
-  bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
-  bus.writeWordSync(addr, 0x06, 0);
-  sleep.sleep(1);
-  bus.writeWordSync(addr, 0x08, 1250);
 }
 function runservo2() {
-  bus.writeByteSync(addr, 0, 0x20);
-  bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
-  bus.writeWordSync(addr,0x0A,0);
-  sleep.sleep(1);
-  bus.writeWordSync(addr, 0x0C, 1250);
+  exec.exec("python y.py");
+  return;
 }
 function runservo3() {
-  bus.writeByteSync(addr, 0, 0x20);
-  bus.writeByteSync(addr, 0xfe, 0x1e);
-  sleep.sleep(1);
-  bus.writeWordSync(addr,0x0E,0);
-  sleep.sleep(1);
-  bus.writeWordSync(addr, 0x10, 1250);
+  exec.exec("python z.py");
+  return;
 }
 io.on('connection',function(socket){
     socket.on('setup',function(data){
@@ -47,14 +31,13 @@ io.on('connection',function(socket){
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     for (var k = 0; k < global.count1; k++) {
-      console.log("timeout set for " + 4000*k);
-      setTimeout(_ => runservo1(), 4000*k);
+      setTimeout(_ => runservo1(), 2000*k);
     }
     for (var l = 0; l < global.count2; l++) {
-      runservo2();
+      setTimeout(_ => runservo2(), 2000*l);
     }
     for (var m = 0; m < global.count3; m++) {
-      runservo3();
+      setTimeout(_ => runservo3(), 2000*m);
     }
   });
 });
@@ -71,10 +54,8 @@ function handledata() {
   var minutes = date.getMinutes();
   var time = (hour<=9?"0"+hour:hour)+":"+(minutes<=9?"0"+minutes:minutes);
   for (var i in data){
-    console.log(`checking i=${i}, day=${day}`)
     if (i == day){
       for (var j in data[i]){
-        console.log(`checking j=${j}, time=${time}`)
         if (j == time){
           io.emit('alert',"Time to take your Pills!");
           global.count1 = data[i][j][0];
