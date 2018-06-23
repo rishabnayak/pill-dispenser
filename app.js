@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
+  console.log("im here");
   bus.writeByteSync(addr, 0, 0x20);
   bus.writeByteSync(addr, 0xfe, 0x1e);
   sleep.sleep(1);
