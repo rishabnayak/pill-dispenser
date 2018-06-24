@@ -31,13 +31,13 @@ io.on('connection',function(socket){
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
     for (var k = 0; k < global.count1; k++) {
-      setTimeout(_ => runservo1(), 2000*k);
+      setTimeout(_ => runservo1(), 1000*k);
     }
     for (var l = 0; l < global.count2; l++) {
-      setTimeout(_ => runservo2(), 2000*l);
+      setTimeout(_ => runservo2(), 1000*l);
     }
     for (var m = 0; m < global.count3; m++) {
-      setTimeout(_ => runservo3(), 2000*m);
+      setTimeout(_ => runservo3(), 1000*m);
     }
   });
 });
