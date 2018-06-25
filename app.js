@@ -9,15 +9,15 @@ app.get('/', (req, res) => {
   res.render('homepage.html');
 });
 function runservo1() {
-  exec.exec("python x.py");
+  global.proc1 = exec.spawn("python x.py");
   return;
 }
 function runservo2() {
-  exec.exec("python y.py");
+  global.proc2 = exec.spawn("python y.py");
   return;
 }
 function runservo3() {
-  exec.exec("python z.py");
+  global.proc3 = exec.spawn("python z.py");
   return;
 }
 io.on('connection',function(socket){
@@ -27,6 +27,9 @@ io.on('connection',function(socket){
   });
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
+    setTimeout(_ => global.proc1.kill(), 0)
+    setTimeout(_ => global.proc2.kill(), 0)
+    setTimeout(_ => global.proc3.kill(), 0)
     for (var k = 0; k < global.count1; k++) {
       setTimeout(_ => runservo1(), 1000*k);
     }
