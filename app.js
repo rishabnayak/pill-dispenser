@@ -2,9 +2,6 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const i2cbus = require('i2c-bus');
-const bus = i2cbus.openSync(1);
-const addr = 0x40;
 const exec = require('child_process')
 app.use(express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
