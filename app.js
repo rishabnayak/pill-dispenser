@@ -27,9 +27,9 @@ io.on('connection',function(socket){
   });
   socket.on('buttonpress',function(){
     clearTimeout(global.timer)
-    setTimeout(_ => global.proc1.kill(), 0)
-    setTimeout(_ => global.proc2.kill(), 0)
-    setTimeout(_ => global.proc3.kill(), 0)
+    setTimeout(_ => "proc1" in global ? global.proc1.kill() : void null, 0)
+    setTimeout(_ => "proc2" in global ? global.proc2.kill() : void null, 0)
+    setTimeout(_ => "proc3" in global ? global.proc3.kill() : void null, 0)
     for (var k = 0; k < global.count1; k++) {
       setTimeout(_ => runservo1(), 1000*k);
     }
