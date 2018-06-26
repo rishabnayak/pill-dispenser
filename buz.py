@@ -17,7 +17,7 @@ def destory():
 
 if __name__=='__main__':
 	setup()
-	timeout = time.time() + 10
+	timeout = time.time() + 120
 	while time.time() <= timeout:
 		time.sleep(1)
 		Buzz.ChangeDutyCycle(0)
