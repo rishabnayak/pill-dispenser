@@ -21,11 +21,11 @@ function runservo3() {
   return;
 }
 function alert1(){
-    exec.exec("python buz.py");
+    global.alert1 = exec.spawn('python', ['buz.py']);
     return;
 }
 function alert2(){
-    exec.exec("python buz1.py");
+    global.alert1 = exec.spawn('python', ['buz1.py']);
     return;
 }
 io.on('connection',function(socket){
@@ -44,6 +44,9 @@ io.on('connection',function(socket){
     for (var m = 0; m < global.count3; m++) {
       setTimeout(_ => runservo3(), 1000*m);
     }
+    io.emit('pills-taken',"Pills Taken!");
+    global.alert1.kill();
+    global.alert2.kill();
   });
 });
 http.listen(8080, () => {
