@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="starter-template.css" rel="stylesheet">
     <title>Pill Dispenser</title>
-        <style>
+    <style>
 
         .w33-box {
             width: 33.33%;
@@ -56,41 +56,42 @@
         }
 
     </style>
-  </head>
-  <script src="/socket.io/socket.io.js"></script>
-  <body>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Pill Dispenser</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pill Dispenser</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-      <main role="main" class="container">
-        <h1 align="center">Setup</h1>
-        <br>
-        <form id="form" align="center">
-          <input type="text" id="text"/>
-          <button type="submit">Submit</button>
         </form>
-      </main>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="user.js"></script>
-    
-    
-    <div class="ver_lim">
+    </div>
+</nav>
+<main role="main" class="container">
+    <h1 align="center">Setup</h1>
+    <br>
+    <form id="form" align="center">
+        <input type="text" id="text"/>
+        <button type="submit">Submit</button>
+    </form>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="user.js"></script>
+
+<div style="clear: both; "></div>
+
+<div class="ver_lim">
 
     <div class="w33-box">
         <div class="pill-display-box" onclick="f1(this, '0')">
@@ -112,11 +113,15 @@
 
 </div>
 
-<div class="ver_lim" id="rules">
+<div style="clear: both; "></div>
 
-</div>
-
-<div class="ver_lim" id="pane" style="display: none;">
+<div class="ver_lim" id="pane" style="
+margin-top: 3em;
+clear: both;
+padding: 2em 1em;
+display: none;
+border: 0.2em solid #bdf;
+border-radius: 0.5em; ">
 
     <div class="choose-day">
         <div class="choose-day-button" id="choose-0" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">SUN</div>
@@ -235,7 +240,13 @@
     </div>
 
     <div class="add-button" onclick="add()">ADD</div>
+
+    <div style="clear: both;"></div>
 </div>
+
+<div style="clear: both; "></div>
+
+<ul class="ver_lim" id="rules"></ul>
 
 <style>
     .choose-day {
@@ -289,6 +300,25 @@
         color: #ffffff;
         background: #66aaff;
     }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        padding: 0.5em;
+        line-height: 1.3em;
+    }
+
+    #rules {
+        margin-top: 2em;
+        clear: both;
+    }
+
+    #rules>li:nth-child(odd) {
+        background: rgba(0,0,0,0.03);
+    }
+
 </style>
 
 <div onclick="buttonpress()" id="alert" style="z-index: 1000; display: none; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); clear: both; border: solid 2px #338833; cursor: pointer; position: fixed; border-radius: 50%; height: 250px; width: 250px; color: #fff; background: linear-gradient(0deg, #229922, #66cc66);">
@@ -297,14 +327,12 @@
 <div id="screen" style="z-index: 900; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); display: none;"></div>
 
 <script>
-
-
     const selected = Symbol("key whose value signifies whether or not a box is selected")
 
     const pbds = [...document.getElementsByClassName("pill-display-box")]
 
     const rules = []
-    
+
     const pane = document.getElementById("pane")
     let ale = document.getElementById("alert")
     let scr = document.getElementById("screen")
@@ -324,13 +352,19 @@
                 }
             })
             window.pill = pill_number
-            pane.style.display = ""
+
+            if("// turn on pane") {
+                pane.style.display = ""
+            }
         }
         else {
             x[selected] = false
             x.classList.remove("selected")
             window.pill = null
-            pane.style.display = "none"
+
+            if("// turn off pane") {
+                pane.style.display = "none"
+            }
         }
     }
 
@@ -366,7 +400,8 @@
 
         rules.push(rule)
         let len = rules.length - 1
-        rule_ele.insertAdjacentHTML("beforeend", `<div>Taking pill ${parseInt(rule[2])+1} x ${rule[3]} on ${days[parseInt(rule[0])]}, at ${rule[1]}. <a href="javascript:rules[${len}]=null;setup();" onclick="this.parentNode.remove()">Delete</a></div>`)
+        rule_ele.insertAdjacentHTML("beforeend",
+            `<li>Taking pill ${parseInt(rule[2])+1} x ${rule[3]} on ${days[parseInt(rule[0])]}, at ${rule[1]}. <a href="javascript:rules[${len}]=null;setup();" onclick="this.parentNode.remove()">Delete</a></li>`)
         setup()
     }
 
@@ -421,6 +456,7 @@
 
     socket.on("alert", alert)
 
+
 </script>
-  </body>
+</body>
 </html>
