@@ -5,57 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="starter-template.css" rel="stylesheet">
+    <link href="homepage.css" rel="stylesheet">
     <title>Pill Dispenser</title>
-    <style>
-
-        .w33-box {
-            width: 33.33%;
-            float: left;
-            box-sizing: border-box;
-            border: 0.2em;
-            padding: 0.2em;
-        }
-
-        .pill-display-box {
-            height: 200px;
-            position: relative;
-            background: url("./pill.png");
-            background-position: center;
-            background-size: contain;
-            background-repeat: no-repeat;
-            box-sizing: border-box;
-            border: 0.2em transparent solid;
-            border-radius: 0.4em;
-            transition: all 0.3s;
-        }
-
-        .pill-display-box:hover {
-            border-color: #bdf
-        }
-
-        .pill-display-box.selected {
-            border-color: #fca
-        }
-
-        .pill-display-box-text {
-            position: absolute;
-            left: 50%;
-            bottom: 8%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 0.2em;
-            padding: 0.1em 0.5em;
-            color: white;
-            white-space: nowrap;
-        }
-
-        .ver_lim {
-            max-width: 1000px;
-            width: 80%;
-            margin: auto;
-        }
-
-    </style>
 </head>
 <script src="/socket.io/socket.io.js"></script>
 <body>
@@ -83,7 +34,7 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="user.js"></script>
+<script src="homepage.js"></script>
 
 <div style="clear: both; "></div>
 
@@ -159,17 +110,10 @@ border-radius: 0.5em; ">
         <span>:</span>
         <select id="minute">
             <option value="00">00</option>
-            <option value="05">05</option>
-            <option value="10">10</option>
             <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
             <option value="30">30</option>
-            <option value="35">35</option>
-            <option value="40">40</option>
             <option value="45">45</option>
-            <option value="50">50</option>
-            <option value="55">55</option>
+            <option value="11">11</option>
         </select>
       </div>
       <div>
@@ -195,79 +139,6 @@ border-radius: 0.5em; ">
 <div style="clear: both; "></div>
 
 <ul class="ver_lim" id="rules"></ul>
-
-<style>
-    .choose-day {
-        border: solid 1px #66aaff;
-        border-radius: 0.23em;
-        clear: both;
-        display: inline-block;
-        color: #4499ff;
-        cursor: pointer;
-    }
-
-    .choose-day-button {
-        float: left;
-        width: 3em;
-        text-align: center;
-    }
-
-    .choose-day-button:not(:last-child) {
-        border-right: solid 1px #66aaff;
-    }
-
-    .choose-day-button.selected {
-        color: #ffffff;
-        background: #66aaff;
-    }
-
-    .choose-time {
-        clear: both;
-    }
-
-    .choose-time input {
-        border-radius: 0;
-        border: solid 0 transparent;
-        border-bottom: solid 1px black;
-        width: 3em;
-    }
-
-    .add-button{
-        border: solid 1px #66aaff;
-        border-radius: 0.23em;
-        display: inline-block;
-        color: #4499ff;
-        cursor: pointer;
-        float: left;
-        width: 3em;
-        text-align: center;
-        margin-top: 0.2em;
-    }
-
-    .add-button:active {
-        color: #ffffff;
-        background: #66aaff;
-    }
-
-    ul {
-        list-style-type: none;
-    }
-
-    li {
-        padding: 0.5em;
-        line-height: 1.3em;
-    }
-
-    #rules {
-        margin-top: 2em;
-        clear: both;
-    }
-
-    #rules>li:nth-child(odd) {
-        background: rgba(0,0,0,0.03);
-    }
-
-</style>
 
 <div onclick="buttonpress()" id="alert" style="z-index: 1000; display: none; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); clear: both; border: solid 2px #338833; cursor: pointer; position: fixed; border-radius: 50%; height: 250px; width: 250px; color: #fff; background: linear-gradient(0deg, #229922, #66cc66);">
     <div style="font-size: 40px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">Dispense</div>

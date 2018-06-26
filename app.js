@@ -38,8 +38,8 @@ io.on('connection',function(socket){
     }
   });
 });
-http.listen(8080, () => {
-console.log("View at localhost:8080");
+http.listen(80, () => {
+console.log("View at localhost:80");
 });
 
 function handledata() {
