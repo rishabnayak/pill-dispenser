@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const exec = require('child_process')
+const exec = require('child_process');
+const twilio = require('twilio');
+var accountSid = 'ACdd65586c5595dd1f65f4c316f902d5ed'; // Your Account SID from www.twilio.com/console
+var authToken = 'df8980cd3531fd0e6d4b51ff54ae2eca';
+var client = new twilio(accountSid, authToken);
 app.use(express.static(__dirname + '/views'));
 app.engine('html', require('ejs').renderFile);
 app.get('/', (req, res) => {
@@ -34,7 +38,7 @@ io.on('connection',function(socket){
         handledata();
   });
   socket.on('buttonpress',function(){
-    clearTimeout(global.timer)
+    clearTimeout(global.alerttimer)
     for (var k = 0; k < global.count1; k++) {
       setTimeout(_ => runservo1(), 1000*k);
     }
@@ -44,7 +48,11 @@ io.on('connection',function(socket){
     for (var m = 0; m < global.count3; m++) {
       setTimeout(_ => runservo3(), 1000*m);
     }
-    io.emit('pills-taken',"Pills Taken!");
+    client.messages.create({
+    body: 'Pills Taken!',
+    to: '+18573641410',  // Text this number
+    from: '+16175805493' // From a valid Twilio number
+    })
     if (global.alert1){
       global.alert1.kill();
     }
@@ -74,11 +82,18 @@ function handledata() {
           global.count1 = data[i][j]["0"];
           global.count2 = data[i][j]["1"];
           global.count3 = data[i][j]["2"];
-          global.timer = setTimeout(function(){
+          global.alerttimer = setTimeout(function(){
             io.emit('alert',"Second Alert!");
             alert2();
             // additional actions here
           }, 600000);
+          global.finaltimer = setTimeout(function(){
+            client.messages.create({
+            body: 'Pills Not Taken!',
+            to: '+18573641410',  // Text this number
+            from: '+16175805493' // From a valid Twilio number
+            })
+          }, 1000);
         }
       }
     }

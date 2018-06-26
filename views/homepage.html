@@ -113,7 +113,7 @@ border-radius: 0.5em; ">
             <option value="15">15</option>
             <option value="30">30</option>
             <option value="45">45</option>
-            <option value="41">41</option>
+            <option value="09">09</option>
         </select>
       </div>
       <div>
@@ -274,10 +274,7 @@ border-radius: 0.5em; ">
     }
 
     socket.on("alert", alert)
-    socket.on("pills-taken",function(data){
-      console.log(data);
-    });
-
+    socket.on("pills-not-taken",dismiss);
 </script>
 </body>
 </html>
