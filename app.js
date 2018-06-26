@@ -25,7 +25,7 @@ function alert1(){
     return;
 }
 function alert2(){
-    global.alert1 = exec.spawn('python', ['buz1.py']);
+    global.alert2 = exec.spawn('python', ['buz1.py']);
     return;
 }
 io.on('connection',function(socket){
@@ -45,8 +45,12 @@ io.on('connection',function(socket){
       setTimeout(_ => runservo3(), 1000*m);
     }
     io.emit('pills-taken',"Pills Taken!");
-    global.alert1.kill();
-    global.alert2.kill();
+    if (global.alert1){
+      global.alert1.kill();
+    }
+    if (global.alert2){
+      global.alert2.kill();
+    }
   });
 });
 http.listen(8080, () => {
