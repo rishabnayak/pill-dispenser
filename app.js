@@ -20,6 +20,14 @@ function runservo3() {
   exec.exec("python z.py");
   return;
 }
+function alert1(){
+    global.alert1 = exec.exec("python buz.py");
+    return;
+}
+function alert2(){
+    global.alert2 = exec.exec("python buz1.py");
+    return;
+}
 io.on('connection',function(socket){
     socket.on('setup',function(data){
       global.data = data;
@@ -36,6 +44,8 @@ io.on('connection',function(socket){
     for (var m = 0; m < global.count3; m++) {
       setTimeout(_ => runservo3(), 1000*m);
     }
+    global.alert1.kill();
+    global.alert2.kill();
   });
 });
 http.listen(80, () => {
@@ -55,11 +65,14 @@ function handledata() {
       for (var j in data[i]){
         if (j == time){
           io.emit('alert',"Time to take your Pills!");
+          alert1();
           global.count1 = data[i][j]["0"];
           global.count2 = data[i][j]["1"];
           global.count3 = data[i][j]["2"];
           global.timer = setTimeout(function(){
             io.emit('alert',"Second Alert!");
+            global.alert1.kill();
+            alert2();
             // additional actions here
           }, 600000);
         }
