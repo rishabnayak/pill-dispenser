@@ -39,6 +39,7 @@ io.on('connection',function(socket){
   });
   socket.on('buttonpress',function(){
     clearTimeout(global.alerttimer)
+    clearTimeout(global.finaltimer)
     for (var k = 0; k < global.count1; k++) {
       setTimeout(_ => runservo1(), 1000*k);
     }
@@ -88,6 +89,7 @@ function handledata() {
             // additional actions here
           }, 600000);
           global.finaltimer = setTimeout(function(){
+            io.emit('pills-not-taken',"Pills Not Taken!");
             client.messages.create({
             body: 'Pills Not Taken!',
             to: '+18573641410',  // Text this number
