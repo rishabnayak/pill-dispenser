@@ -93,7 +93,7 @@ function handledata() {
             to: '+18573641410',  // Text this number
             from: '+16175805493' // From a valid Twilio number
             })
-          }, 1000);
+          }, 720000);
         }
       }
     }
