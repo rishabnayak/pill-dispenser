@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="starter-template.css" rel="stylesheet">
     <title>Pill Dispenser</title>
-        <style>
+    <style>
 
         .w33-box {
             width: 33.33%;
@@ -19,7 +19,7 @@
         .pill-display-box {
             height: 200px;
             position: relative;
-            background: url("./Taking-Pills-to-Enhance-Sexual-Performance.jpg");
+            background: url("./pill.png");
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
@@ -56,41 +56,38 @@
         }
 
     </style>
-  </head>
-  <script src="/socket.io/socket.io.js"></script>
-  <body>
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Pill Dispenser</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Pill Dispenser</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-      <main role="main" class="container">
-        <h1 align="center">Setup</h1>
-        <br>
-        <form id="form" align="center">
-          <input type="text" id="text"/>
-          <button type="submit">Submit</button>
         </form>
-      </main>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="user.js"></script>
-    
-    
-    <div class="ver_lim">
+    </div>
+</nav>
+<main role="main" class="container">
+    <h1 align="center">Setup</h1>
+    <br>
+</main>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="user.js"></script>
+
+<div style="clear: both; "></div>
+
+<div class="ver_lim">
 
     <div class="w33-box">
         <div class="pill-display-box" onclick="f1(this, '0')">
@@ -112,24 +109,27 @@
 
 </div>
 
-<div class="ver_lim" id="rules">
+<div style="clear: both; "></div>
 
-</div>
-
-<div class="ver_lim" id="pane" style="display: none;">
+<div class="ver_lim" id="pane" style="
+margin-top: 3em;
+clear: both;
+padding: 2em 1em;
+display: none;
+border: 0.2em solid #bdf;
+border-radius: 0.5em; ">
 
     <div class="choose-day">
-        <div class="choose-day-button" id="choose-0" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">SUN</div>
-        <div class="choose-day-button" id="choose-1" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">MON</div>
-        <div class="choose-day-button" id="choose-2" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">TUE</div>
-        <div class="choose-day-button" id="choose-3" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">WED</div>
-        <div class="choose-day-button" id="choose-4" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">THU</div>
-        <div class="choose-day-button" id="choose-5" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">FRI</div>
-        <div class="choose-day-button" id="choose-6" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">SAT</div>
+        <div class="choose-day-button" id="choose-0" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Sun</div>
+        <div class="choose-day-button" id="choose-1" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Mon</div>
+        <div class="choose-day-button" id="choose-2" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Tue</div>
+        <div class="choose-day-button" id="choose-3" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Wed</div>
+        <div class="choose-day-button" id="choose-4" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Thu</div>
+        <div class="choose-day-button" id="choose-5" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Fri</div>
+        <div class="choose-day-button" id="choose-6" onclick="!this.classList.contains('selected')?this.classList.add('selected'):this.classList.remove('selected')">Sat</div>
     </div>
-
     <div class="choose-time">
-        <span>TIME </span>
+        <span>Time : </span>
         <select id="hour">
             <option value="00">00</option>
             <option value="01">01</option>
@@ -159,67 +159,21 @@
         <span>:</span>
         <select id="minute">
             <option value="00">00</option>
-            <option value="01">01</option>
-            <option value="02">02</option>
-            <option value="03">03</option>
-            <option value="04">04</option>
             <option value="05">05</option>
-            <option value="06">06</option>
-            <option value="07">07</option>
-            <option value="08">08</option>
-            <option value="09">09</option>
             <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
             <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
             <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
             <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
             <option value="30">30</option>
-            <option value="31">31</option>
-            <option value="32">32</option>
-            <option value="33">33</option>
-            <option value="34">34</option>
             <option value="35">35</option>
-            <option value="36">36</option>
-            <option value="37">37</option>
-            <option value="38">38</option>
-            <option value="39">39</option>
             <option value="40">40</option>
-            <option value="41">41</option>
-            <option value="42">42</option>
-            <option value="43">43</option>
-            <option value="44">44</option>
             <option value="45">45</option>
-            <option value="46">46</option>
-            <option value="47">47</option>
-            <option value="48">48</option>
-            <option value="49">49</option>
             <option value="50">50</option>
-            <option value="51">51</option>
-            <option value="52">52</option>
-            <option value="53">53</option>
-            <option value="54">54</option>
             <option value="55">55</option>
-            <option value="56">56</option>
-            <option value="57">57</option>
-            <option value="58">58</option>
-            <option value="59">59</option>
         </select>
-        AMOUNT
+      </div>
+      <div>
+        <span> Amount : </span>
         <select id="amount">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -233,9 +187,14 @@
             <option value="10">10</option>
         </select>
     </div>
+    <div class="add-button" onclick="add()">Add</div>
 
-    <div class="add-button" onclick="add()">ADD</div>
+    <div style="clear: both;"></div>
 </div>
+
+<div style="clear: both; "></div>
+
+<ul class="ver_lim" id="rules"></ul>
 
 <style>
     .choose-day {
@@ -289,22 +248,39 @@
         color: #ffffff;
         background: #66aaff;
     }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        padding: 0.5em;
+        line-height: 1.3em;
+    }
+
+    #rules {
+        margin-top: 2em;
+        clear: both;
+    }
+
+    #rules>li:nth-child(odd) {
+        background: rgba(0,0,0,0.03);
+    }
+
 </style>
 
 <div onclick="buttonpress()" id="alert" style="z-index: 1000; display: none; top: 50%; left: 50%; transform: translateY(-50%) translateX(-50%); clear: both; border: solid 2px #338833; cursor: pointer; position: fixed; border-radius: 50%; height: 250px; width: 250px; color: #fff; background: linear-gradient(0deg, #229922, #66cc66);">
-    <div style="font-size: 40px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">DISPENSE</div>
+    <div style="font-size: 40px; position: absolute; top: 50%; left: 50%; transform: translateX(-50%) translateY(-50%);">Dispense</div>
 </div>
 <div id="screen" style="z-index: 900; position: fixed; top: 0; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); display: none;"></div>
 
 <script>
-
-
     const selected = Symbol("key whose value signifies whether or not a box is selected")
 
     const pbds = [...document.getElementsByClassName("pill-display-box")]
 
     const rules = []
-    
+
     const pane = document.getElementById("pane")
     let ale = document.getElementById("alert")
     let scr = document.getElementById("screen")
@@ -324,13 +300,19 @@
                 }
             })
             window.pill = pill_number
-            pane.style.display = ""
+
+            if("// turn on pane") {
+                pane.style.display = ""
+            }
         }
         else {
             x[selected] = false
             x.classList.remove("selected")
             window.pill = null
-            pane.style.display = "none"
+
+            if("// turn off pane") {
+                pane.style.display = "none"
+            }
         }
     }
 
@@ -366,7 +348,8 @@
 
         rules.push(rule)
         let len = rules.length - 1
-        rule_ele.insertAdjacentHTML("beforeend", `<div>Taking pill ${parseInt(rule[2])+1} x ${rule[3]} on ${days[parseInt(rule[0])]}, at ${rule[1]}. <a href="javascript:rules[${len}]=null;setup();" onclick="this.parentNode.remove()">Delete</a></div>`)
+        rule_ele.insertAdjacentHTML("beforeend",
+            `<li>Taking pill ${parseInt(rule[2])+1} x ${rule[3]} on ${days[parseInt(rule[0])]}, at ${rule[1]}. <a href="javascript:rules[${len}]=null;setup();" onclick="this.parentNode.remove()">Delete</a></li>`)
         setup()
     }
 
@@ -421,6 +404,7 @@
 
     socket.on("alert", alert)
 
+
 </script>
-  </body>
+</body>
 </html>
