@@ -48,8 +48,8 @@ io.on('connection',function(socket){
     global.alert2.kill();
   });
 });
-http.listen(80, () => {
-console.log("View at localhost:80");
+http.listen(8080, () => {
+console.log("View at localhost:8080");
 });
 
 function handledata() {
